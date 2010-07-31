@@ -13,7 +13,7 @@ module MongoMapper
         def self.from_full(full_document)
           d = self.new
           keys.keys.each do |k|
-            d.send("#{k}=".to_sym, full_document.send(k.to_sym))
+            d.send("#{k}=".to_sym, full_document.send(k.to_sym)) if full_document.respond_to?(k.to_sym)
           end
           d
         end

@@ -32,6 +32,7 @@ end
 
 require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
+MongoMapper.connection = Mongo::Connection.new("rails-mysql",nil)
 MongoMapper.database = 'mm_plugin_test'
 
 Spec::Runner.configure do |config|
